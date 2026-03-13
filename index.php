@@ -38,14 +38,12 @@
     <ul>";
 
     $sommeMoyenneEleve = 0;
-    $nombreEleve = 0;
     
     foreach ($noteEleve as $key => $value) {
         $moyenneClasse .= "<li>".$key." : ".(round(moyenne($noteEleve[$key]), 2))."</li>";
         $sommeMoyenneEleve += moyenne($noteEleve[$key]);
-        $nombreEleve = $nombreEleve + 1;
     }
-    $moyenneGeneraleClasse = round(($sommeMoyenneEleve / $nombreEleve),2);
+    $moyenneGeneraleClasse = round(($sommeMoyenneEleve / sizeof($noteEleve)),2);
     $moyenneClasse = $moyenneClasse."</ul><h2> Moyenne Générale :".$moyenneGeneraleClasse."</h2>";
 
     include "./header.php"; 
